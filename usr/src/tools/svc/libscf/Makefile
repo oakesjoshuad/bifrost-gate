@@ -37,10 +37,11 @@ LDLIBS =	-R '$$ORIGIN/../../lib/$(MACH)' -L$(ROOTONBLDLIBMACH) \
 		-luutil -lc -lgen -lnvpair
 NATIVE_LIBS +=	libnvpair.so libgen.so libc.so
 
-ifeq ($(MACH),i386)
-LDLIBS +=	-lsmbios
-NATIVE_LIBS +=	libsmbios.so
-endif
+i386_LDLIBS +=	-lsmbios
+i386_NATIVE_LIBS +=	libsmbios.so
+
+LDLIBS +=	$($(MACH)_LDLIBS)
+NATIVE_LIBS +=	$($(MACH)_NATIVE_LIBS)
 
 include $(SRC)/Makefile.native
 
