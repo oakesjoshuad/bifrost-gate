@@ -27,6 +27,8 @@ CSTD=		$(CSTD_GNU99)
 
 # unused labels in yaccpar
 CERRWARN +=	-_gnu=-Wno-unused-label
+CERRWARN +=	-_gnu=-Wno-error=int-to-pointer-cast
+CERRWARN +=	-_gnu=-Wno-error=pointer-to-int-cast
 
 FORMS =		nceucform ncform nrform
 ROOTFORMS =	$(FORMS:%=$(ROOTONBLDSHLIBCCS)/%)
