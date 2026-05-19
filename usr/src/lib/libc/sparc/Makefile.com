@@ -1304,6 +1304,7 @@ GENASSYM_C = $(LIBCDIR)/$(MACH)/genassym.c
 LDFLAGS.native = $(LDASSERTS) $(BDIRECT)
 
 genassym := NATIVE_LIBS += libc.so
+genassym := CERRWARN += -_gcc=-Wno-unknown-pragmas
 
 genassym: $(GENASSYM_C)
 	$(NATIVECC) $(NATIVE_CFLAGS) -I$(LIBCBASE)/inc -I$(LIBCDIR)/inc \

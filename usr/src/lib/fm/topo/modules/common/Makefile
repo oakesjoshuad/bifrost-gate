@@ -25,7 +25,10 @@
 # Copyright (c) 2018, Joyent, Inc.
 #
 
-SUBDIRS =		\
+COMMON_SUBDIRS =	\
+	pciebus
+
+i386_SUBDIRS =		\
 	dimm		\
 	disk		\
 	fac_prov_ahci	\
@@ -34,12 +37,13 @@ SUBDIRS =		\
 	fac_prov_mptsas	\
 	ipmi		\
 	nic		\
-	pciebus		\
 	ses		\
 	smbios		\
 	usb		\
 	ufm		\
 	xfp
+
+SUBDIRS = $(COMMON_SUBDIRS) $($(MACH)_SUBDIRS)
 
 ses:	disk
 
