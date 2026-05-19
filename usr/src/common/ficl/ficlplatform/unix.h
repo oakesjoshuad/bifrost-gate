@@ -25,6 +25,8 @@ extern "C" {
 #define	FICL_PLATFORM_OS		"illumos"
 #if defined(__i386__) || defined(__amd64__)
 #define	FICL_PLATFORM_ARCHITECTURE	"i386"
+#elif defined(__sparc) || defined(__sparc__)
+#define	FICL_PLATFORM_ARCHITECTURE	"sparc"
 #elif defined(__aarch64__)
 #define	FICL_PLATFORM_ARCHITECTURE	"aarch64"
 #else
