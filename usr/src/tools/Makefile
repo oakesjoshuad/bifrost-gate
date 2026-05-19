@@ -105,11 +105,11 @@ ROOTDIRS=					\
 	$(ROOTOPT)				\
 	$(ROOTONBLD)				\
 	$(ROOTONBLD)/bin			\
-	$(ROOTONBLD)/bin/$(MACH)		\
-	$(ROOTONBLD)/bin/$(MACH64)		\
+	$(MACH:%=$(ROOTONBLD)/bin/%)		\
+	$(MACH64:%=$(ROOTONBLD)/bin/%)		\
 	$(ROOTONBLD)/lib			\
-	$(ROOTONBLD)/lib/$(MACH)		\
-	$(ROOTONBLD)/lib/$(MACH)/64		\
+	$(MACH:%=$(ROOTONBLD)/lib/%)		\
+	$(MACH:%=$(ROOTONBLD)/lib/%/64)	\
 	$(ROOTONBLD)/lib/perl			\
 	$(ROOTONBLD)/env			\
 	$(ROOTONBLD)/etc			\
