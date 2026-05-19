@@ -673,7 +673,7 @@ gch(void)
 }
 
 int
-mn2(int a, int d, int c)
+mn2(int a, int d, intptr_t c)
 {
 	if (tptr >= treesize) {
 		tptr++;

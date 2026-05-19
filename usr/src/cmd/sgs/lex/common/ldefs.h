@@ -31,6 +31,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #include <widec.h>
 #include <wctype.h>
@@ -189,8 +190,8 @@ extern int prev;	/* previous input character */
 extern int pres;	/* present input character */
 extern int peek;	/* next input character */
 extern int *name;
-extern int *left;
-extern int *right;
+extern intptr_t *left;
+extern intptr_t *right;
 extern int *parent;
 extern Boolean *nullstr;
 extern int tptr;
@@ -274,7 +275,7 @@ int cpyact(void);
 int lookup(CHR *s, CHR **t);
 int usescape(int c);
 int alpha(int c);
-int mn2(int a, int d, int c);
+int mn2(int a, int d, intptr_t c);
 int mn1(int a, int d);
 int mn0(int a);
 int dupl(int n);
