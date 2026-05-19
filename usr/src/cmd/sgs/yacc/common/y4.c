@@ -371,6 +371,7 @@ nxti(void)
 	/* finds the next i */
 	int i, max, maxi;
 	max = 0;
+	maxi = NOMORE;
 
 	for (i = 1; i <= nnonter; ++i)
 		if (ggreed[i] >= max) {
