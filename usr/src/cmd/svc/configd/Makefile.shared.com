@@ -46,6 +46,10 @@ CERRWARN += -_gcc=-Wno-unused-variable
 CERRWARN += -_gcc=-Wno-unused-function
 CERRWARN += $(CNOWARN_UNINIT)
 
+# Legacy SPARC headers pulled in by configd's includes still carry
+# #pragma ident; gcc warns on that pragma and -Werror makes it fatal.
+configd.o := CERRWARN += -_gcc=-Wno-unknown-pragmas
+
 # strange false positive
 SMOFF += free
 
