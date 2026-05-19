@@ -1061,6 +1061,7 @@ CERRWARN += -_gcc=-Wno-char-subscripts
 CERRWARN += -_gcc=-Wno-clobbered
 CERRWARN += -_gcc=-Wno-unused-function
 CERRWARN += -_gcc=-Wno-address
+CERRWARN += -_gcc=-Wno-unknown-pragmas
 
 # Setting THREAD_DEBUG = -DDEBUG (make THREAD_DEBUG=-DDEBUG ...)
 # enables ASSERT() checking in the library.
