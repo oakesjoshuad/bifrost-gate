@@ -31,7 +31,7 @@ CERRWARN +=	-_gcc=-Wno-parentheses
 CERRWARN +=	$(CNOWARN_UNINIT)
 
 # Native SPARC builds pull in legacy headers with #pragma ident.
-error.o := CERRWARN += -_gcc=-Wno-unknown-pragmas
+pics/error.o := CERRWARN += -_gcc=-Wno-unknown-pragmas
 
 # not linted
 SMATCH=off
