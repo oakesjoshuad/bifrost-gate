@@ -159,7 +159,7 @@ DYNHDRDIRS =	common/gssapi \
 		common/rpcsvc \
 		common/sys
 
-sparc_HDRDIRS=
+sparc_HDRDIRS= sun/sys
 i386_HDRDIRS= i86pc/vm i86xpv/vm
 
 HDRDIRS= $(COMMON_HDRDIRS) $($(MACH)_HDRDIRS)
