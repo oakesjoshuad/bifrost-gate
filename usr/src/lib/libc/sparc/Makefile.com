@@ -1120,6 +1120,7 @@ CERRWARN += -_gcc=-Wno-char-subscripts
 CERRWARN += -_gcc=-Wno-clobbered
 CERRWARN += -_gcc=-Wno-unused-function
 CERRWARN += -_gcc=-Wno-address
+CERRWARN += -_gcc=-Wno-unknown-pragmas
 
 # Setting THREAD_DEBUG = -DDEBUG (make THREAD_DEBUG=-DDEBUG ...)
 # enables ASSERT() checking in the library.
@@ -1304,7 +1305,6 @@ GENASSYM_C = $(LIBCDIR)/$(MACH)/genassym.c
 LDFLAGS.native = $(LDASSERTS) $(BDIRECT)
 
 genassym := NATIVE_LIBS += libc.so
-genassym := CERRWARN += -_gcc=-Wno-unknown-pragmas
 
 genassym: $(GENASSYM_C)
 	$(NATIVECC) $(NATIVE_CFLAGS) -I$(LIBCBASE)/inc -I$(LIBCDIR)/inc \
