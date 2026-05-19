@@ -166,9 +166,9 @@ r:	CHAR
 		$$.i = mn0(DOT);
 		}
 	| CCL
-	{	$$.i = mn1(RCCL,$1.i); }
+	{	$$.i = mn1(RCCL, (intptr_t)$1.cp); }
 	| NCCL
-	{	$$.i = mn1(RNCCL,$1.i); }
+	{	$$.i = mn1(RNCCL, (intptr_t)$1.cp); }
 	| r '*'
 	{	$$.i = mn1(STAR,$1.i); }
 	| r '+'

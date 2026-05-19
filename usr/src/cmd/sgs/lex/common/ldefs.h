@@ -276,7 +276,7 @@ int lookup(CHR *s, CHR **t);
 int usescape(int c);
 int alpha(int c);
 int mn2(int a, int d, intptr_t c);
-int mn1(int a, int d);
+int mn1(int a, intptr_t d);
 int mn0(int a);
 int dupl(int n);
 
