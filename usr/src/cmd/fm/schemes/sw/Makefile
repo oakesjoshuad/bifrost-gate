@@ -25,7 +25,8 @@
 
 include ../../../Makefile.cmd
 
-SUBDIRS = $(MACH)
+i386_SUBDIRS = i386
+SUBDIRS = $($(MACH)_SUBDIRS)
 $(BUILD64)SUBDIRS += $(MACH64)
 
 include ../../Makefile.subdirs

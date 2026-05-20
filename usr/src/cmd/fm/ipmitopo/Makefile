@@ -24,6 +24,7 @@
 #
 #ident	"%Z%%M%	%I%	%E% SMI"
 
-SUBDIRS = $(MACH)
+i386_SUBDIRS = i386
+SUBDIRS = $($(MACH)_SUBDIRS)
 
 include ../Makefile.subdirs

@@ -23,6 +23,7 @@
 # Copyright (c) 2010, Oracle and/or its affiliates. All rights reserved.
 #
 
-SUBDIRS = $(MACH)
+i386_SUBDIRS = i386
+SUBDIRS = $($(MACH)_SUBDIRS)
 
 include ../Makefile.subdirs

@@ -24,7 +24,8 @@
 # Use is subject to license terms.
 #
 
-SUBDIRS = $(MACH)
+i386_SUBDIRS = i386
+SUBDIRS = $($(MACH)_SUBDIRS)
 
 #
 # We don't currently support the debug target for the native build.

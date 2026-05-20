@@ -27,7 +27,8 @@
 
 debug := TARGET += debug
 
-SUBDIRS = $(MACH)
+i386_SUBDIRS = i386
+SUBDIRS = $($(MACH)_SUBDIRS)
 
 debug: $(SUBDIRS)
 
