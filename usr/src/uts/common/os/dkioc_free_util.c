@@ -220,7 +220,10 @@ dfl_iter(dkioc_free_list_t *dfl, const dkioc_free_info_t *dfi, uint64_t max_off,
 	n_bytes = n_segs = 0;
 	ext = dfl->dfl_exts;
 	for (i = 0; i < dfl->dfl_num_exts; i++, ext++) {
-		uint64_t start = dfl->dfl_offset + ext->dfle_start;
+		/*
+		 * Drop unused start placeholder; there is no initializer side
+		 * effect and all logic operates on len and ext directly.
+		 */
 		uint64_t len = ext->dfle_length;
 
 		if (len == 0) {
@@ -418,7 +421,10 @@ process_range(dkioc_free_list_t *dfl, uint64_t start_idx, uint64_t n,
 	dkioc_free_list_ext_t *new_exts = NULL;
 	dkioc_free_list_ext_t *exts = dfl->dfl_exts + start_idx;
 	size_t actual_n = n;
-	int r = 0;
+	/*
+	 * Drop unused r placeholder; this function returns direct status
+	 * values from active branches.
+	 */
 
 	if (n == 0) {
 		return (0);

@@ -1122,9 +1122,11 @@ csx_GetMappedAddr(acc_handle_t handle, void **addr)
 int32_t
 csx_GetPhysAddr(acc_handle_t handle, void **addr)
 {
-#ifndef	lint
-	ddi_acc_hdl_t *hp = impl_acc_hdl_get(handle);
-#endif	/* lint */
+	/*
+	 * Preserve handle validation side effects without a dead local.
+	 * Historically this path used an unused hp temporary.
+	 */
+	ASSERT(impl_acc_hdl_get(handle) != NULL);
 
 #ifdef	CS_STUBS_DEBUG
 	if (cs_stubs_debug > 3)
@@ -1140,9 +1142,11 @@ csx_GetPhysAddr(acc_handle_t handle, void **addr)
 int32_t
 csx_DupHandle(acc_handle_t handle, acc_handle_t *dup, uint32_t flags)
 {
-#ifndef	lint
-	ddi_acc_hdl_t *hp = impl_acc_hdl_get(handle);
-#endif	/* lint */
+	/*
+	 * Preserve handle validation side effects without a dead local.
+	 * Historically this path used an unused hp temporary.
+	 */
+	ASSERT(impl_acc_hdl_get(handle) != NULL);
 
 #ifdef	CS_STUBS_DEBUG
 	if (cs_stubs_debug > 3)
