@@ -35,13 +35,13 @@
 #
 UTSBASE	= ../..
 
-ASSYM_H			= $(DSF_DIR)/$(OBJS_DIR)/assym.h
-GENCONST		= $(DSF_DIR)/$(OBJS_DIR)/genconst
-OFFSETS_C		= $(DSF_DIR)/$(OBJS_DIR)/offsets.c
-OFFSETS_S		= $(DSF_DIR)/$(OBJS_DIR)/offsets.s
-OFFSETS_TMP		= $(DSF_DIR)/$(OBJS_DIR)/offsets.tmp
-OFFSETS_OUT		= $(DSF_DIR)/$(OBJS_DIR)/offsets.out
-OFFSETS_MACH_OUT	= $(DSF_DIR)/$(OBJS_DIR)/mach_offsets.out
+ASSYM_H		= $(OBJS_DIR)/assym.h
+GENCONST		= $(OBJS_DIR)/genconst
+OFFSETS_C		= $(OBJS_DIR)/offsets.c
+OFFSETS_S		= $(OBJS_DIR)/offsets.s
+OFFSETS_TMP		= $(OBJS_DIR)/offsets.tmp
+OFFSETS_OUT		= $(OBJS_DIR)/offsets.out
+OFFSETS_MACH_OUT	= $(OBJS_DIR)/mach_offsets.out
 
 #
 #	Include common rules.

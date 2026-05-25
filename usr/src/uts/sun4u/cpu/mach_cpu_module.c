@@ -247,8 +247,15 @@ prefetch_page_w(void *pp)
 	 * the 'prefetch_page_w' assembly language code
 	 * (see also prefetch_page_w prologue comment)
 	 */
-	/*LINTED*/
-	volatile int garbage[ECACHE_PAGE_BYTE_MAX - sizeof (page_t)];
+	
+/*
+	 * Historically this used an intentionally-unused local array to fail
+	 * compilation when page_t grew beyond what the assembly prefetch code
+	 * can safely assume. Use an explicit compile-time assertion instead.
+	 */
+	_Static_assert(sizeof (page_t) <= ECACHE_PAGE_BYTE_MAX,
+	    "prefetch_page_w/r assembly requires page_t <= ECACHE_PAGE_BYTE_MAX");
+
 }
 
 /* ARGSUSED */
@@ -269,8 +276,15 @@ prefetch_page_r(void *pp)
 	 * the 'prefetch_page_r' assembly language code
 	 * (see also prefetch_page_w prologue comment)
 	 */
-	/*LINTED*/
-	volatile int garbage[ECACHE_PAGE_BYTE_MAX - sizeof (page_t)];
+	
+/*
+	 * Historically this used an intentionally-unused local array to fail
+	 * compilation when page_t grew beyond what the assembly prefetch code
+	 * can safely assume. Use an explicit compile-time assertion instead.
+	 */
+	_Static_assert(sizeof (page_t) <= ECACHE_PAGE_BYTE_MAX,
+	    "prefetch_page_w/r assembly requires page_t <= ECACHE_PAGE_BYTE_MAX");
+
 }
 
 
@@ -292,9 +306,15 @@ prefetch_smap_w(void *smp)
 	 * need to update the code in the 'prefetch_smap_w' assembly
 	 * language code.
 	 */
-	/*LINTED*/
-	volatile int smap_size_changed [SMAP_SIZE - sizeof (struct smap) + 1];
-	volatile int smap_size_changed2 [sizeof (struct smap) - SMAP_SIZE + 1];
+	
+/*
+	 * Historically these intentionally-unused arrays enforced exact smap
+	 * size for assembly prefetch code. Keep the contract explicitly with
+	 * a compile-time assertion to avoid -Wunused-variable failures.
+	 */
+	_Static_assert(sizeof (struct smap) == SMAP_SIZE,
+	    "prefetch_smap_w assembly requires struct smap size == SMAP_SIZE");
+
 }
 
 void
