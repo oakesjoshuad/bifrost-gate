@@ -614,7 +614,13 @@ static void sql_select_caller_info(struct select_caller_info_data *data,
 		return;
 	}
 
-	if (sym->ident->name && is_common_function(sym->ident->name))
+	/*
+	 * ident->name is a flexible array member, not a nullable pointer.
+	 * Keep a defensive guard on sym/ident and check the function name
+	 * directly to avoid -Waddress false checks.
+	 */
+	if (sym != NULL && sym->ident != NULL &&
+	    is_common_function(sym->ident->name))
 		return;
 	run_sql(caller_info_callback, data,
 		"select %s from common_caller_info where %s order by call_id;",
